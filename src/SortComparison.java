@@ -18,9 +18,26 @@ class SortComparison {
 	 *
 	 */
 	static double [] insertionSort (double a[]){
-		return null;
-		//todo: implement the sort
-	}//end insertionsort
+		double temp;
+		 if (a != null)
+		 {
+		 for (int i = 1; i < a.length; i++) {
+			 for(int j = i ; j > 0 ; j--){ 
+				 if(a[j] < a[j-1])
+				 {
+					 temp = a[j];
+					 a[j] = a[j-1];
+					 a[j-1] = temp;
+				 }
+			 }
+		 }
+		 return a;
+		 }
+		 else
+		 {
+			 return null;
+		 }
+	}
 
 	/**
 	 * Sorts an array of doubles using Selection Sort.
