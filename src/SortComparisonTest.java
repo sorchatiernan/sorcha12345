@@ -70,6 +70,30 @@ public class SortComparisonTest
     	assertArrayEquals(mixedArray, mixedArraySorted, DELTA);
 
     }
+    @Test
+    public void testSelectionSort()
+    {
+    	//test an array with one element
+    	double [] singleArray = {1.5};	
+    	double [] singleArraySorted = SortComparison.selectionSort(singleArray);
+    	assertArrayEquals(singleArraySorted, singleArray, DELTA);
+
+    	//tests a positive array
+    	double [] positiveArray = {3.2, 8.9, 1.0, 11.4, 5.5};
+    	double [] positiveArraySorted = SortComparison.selectionSort(positiveArray);
+    	assertArrayEquals(positiveArray, positiveArraySorted, DELTA);
+
+    	//test a negative array
+    	double [] negativeArray = {-3.2, -8.9, -1.0, -11.4, -5.5};
+    	double [] negativeArraySorted = SortComparison.selectionSort(negativeArray);
+    	assertArrayEquals(negativeArray, negativeArraySorted, DELTA);
+
+    	//tests an array with both negative and positive components
+    	double [] mixedArray = {3.2, -8.9, 1.0, -11.4, -5.5};
+    	double [] mixedArraySorted = SortComparison.selectionSort(mixedArray);
+    	assertArrayEquals(mixedArray, mixedArraySorted, DELTA);
+
+    }
     /**
      *  Main Method.
      *  Use this main method to create the experiments needed to answer the experimental performance questions of this assignment.
