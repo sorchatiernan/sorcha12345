@@ -47,10 +47,26 @@ class SortComparison {
 	 *
 	 */
 	static double [] selectionSort (double a[]){
-		return null;
-		//todo: implement the sort
+		if (a != null)
+    	{
+    	int n = a.length;
+    	for (int i = 0; i < n-1; i++)
+    	{
+    	int min_idx = i;
+    	for (int j = i+1; j < n; j++)
+    	if (a[j] < a[min_idx]) min_idx = j;
+    	double temp = a[min_idx];
+    	a[min_idx] = a[i];
+    	        a[i] = temp;
+    	    }
+    	return a;
+    	}
+    	else
+    	{
+    		return null;
+    	}
 
-	}//end selectionsort
+	}
 
 	/**
 	 * Sorts an array of doubles using Quick Sort.
