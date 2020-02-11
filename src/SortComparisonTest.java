@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,8 +31,14 @@ public class SortComparisonTest
     @Test
     public void testEmpty()
     {
+    	double [] emptyArray = null;
+    	assertNull(SortComparison.insertionSort(emptyArray));
+    	assertNull(SortComparison.selectionSort(emptyArray));
+    	assertNull(SortComparison.quickSort(emptyArray));
+    	assertNull(SortComparison.mergeSortIterative(emptyArray));
+    	assertNull(SortComparison.mergeSortRecursive(emptyArray));
+    	
     }
-
 
     // TODO: add more tests here. Each line of code and ech decision in Collinear.java should
     // be executed at least once from at least one test.
