@@ -38,7 +38,8 @@ public class SortComparisonTest
     	assertNull(SortComparison.selectionSort(emptyArray));
     	assertNull(SortComparison.quickSort(emptyArray));
     	assertNull(SortComparison.mergeSortIterative(emptyArray));
-    	assertNull(SortComparison.mergeSortRecursive(emptyArray));
+    	SortComparison.mergeSortRecursive(emptyArray);
+    	assertNull(emptyArray);
     	
     }
 
@@ -50,49 +51,118 @@ public class SortComparisonTest
     public void testInsertionSort()
     {
     	//test an array with one element
-    	double [] singleArray = {1.5};	
-    	double [] singleArraySorted = SortComparison.insertionSort(singleArray);
-    	assertArrayEquals(singleArraySorted, singleArray, DELTA);
+    	double [] aSingle = {1.5};	
+    	double [] aSingleSorted = {1.5};
+    	double [] bSingle = SortComparison.insertionSort(aSingle);
+    	assertArrayEquals(aSingleSorted, bSingle, DELTA);
 
     	//tests a positive array
-    	double [] positiveArray = {3.2, 8.9, 1.0, 11.4, 5.5};
-    	double [] positiveArraySorted = SortComparison.insertionSort(positiveArray);
-    	assertArrayEquals(positiveArray, positiveArraySorted, DELTA);
+    	double [] aPositive = {3.2, 8.9, 1.0, 11.4, 5.5};
+    	double [] aPositiveSorted = {1.0, 3.2, 5.5, 8.9, 11.4};
+    	double [] bPositive = SortComparison.insertionSort(aPositive);
+    	assertArrayEquals(aPositiveSorted, bPositive, DELTA);
 
     	//test a negative array
-    	double [] negativeArray = {-3.2, -8.9, -1.0, -11.4, -5.5};
-    	double [] negativeArraySorted = SortComparison.insertionSort(negativeArray);
-    	assertArrayEquals(negativeArray, negativeArraySorted, DELTA);
+    	double [] aNegative = {-3.2, -8.9, -1.0, -11.4, -5.5};
+    	double [] aNegativeSorted = {-11.4, -8.9, -5.5, -3.2, -1.0};
+    	double [] bNegative = SortComparison.insertionSort(aNegative);
+    	assertArrayEquals(aNegativeSorted, bNegative, DELTA);
 
     	//tests an array with both negative and positive components
-    	double [] mixedArray = {3.2, -8.9, 1.0, -11.4, -5.5};
-    	double [] mixedArraySorted = SortComparison.insertionSort(mixedArray);
-    	assertArrayEquals(mixedArray, mixedArraySorted, DELTA);
+    	double [] aMixed = {3.2, -8.9, 1.0, -11.4, -5.5};
+    	double [] aMixedSorted = {-11.4, -8.9, -5.5, 1.0, 3.2};
+    	double [] bMixed = SortComparison.insertionSort(aMixed);
+    	assertArrayEquals(aMixedSorted, bMixed, DELTA);
 
     }
     @Test
     public void testSelectionSort()
     {
     	//test an array with one element
-    	double [] singleArray = {1.5};	
-    	double [] singleArraySorted = SortComparison.selectionSort(singleArray);
-    	assertArrayEquals(singleArraySorted, singleArray, DELTA);
+    	double [] aSingle = {1.5};	
+    	double [] aSingleSorted = {1.5};
+    	double [] bSingle = SortComparison.selectionSort(aSingle);
+    	assertArrayEquals(aSingleSorted, bSingle, DELTA);
 
     	//tests a positive array
-    	double [] positiveArray = {3.2, 8.9, 1.0, 11.4, 5.5};
-    	double [] positiveArraySorted = SortComparison.selectionSort(positiveArray);
-    	assertArrayEquals(positiveArray, positiveArraySorted, DELTA);
+    	double [] aPositive = {3.2, 8.9, 1.0, 11.4, 5.5};
+    	double [] aPositiveSorted = {1.0, 3.2, 5.5, 8.9, 11.4};
+    	double [] bPositive = SortComparison.selectionSort(aPositive);
+    	assertArrayEquals(aPositiveSorted, bPositive, DELTA);
 
     	//test a negative array
-    	double [] negativeArray = {-3.2, -8.9, -1.0, -11.4, -5.5};
-    	double [] negativeArraySorted = SortComparison.selectionSort(negativeArray);
-    	assertArrayEquals(negativeArray, negativeArraySorted, DELTA);
+    	double [] aNegative = {-3.2, -8.9, -1.0, -11.4, -5.5};
+    	double [] aNegativeSorted = {-11.4, -8.9, -5.5, -3.2, -1.0};
+    	double [] bNegative = SortComparison.selectionSort(aNegative);
+    	assertArrayEquals(aNegativeSorted, bNegative, DELTA);
 
     	//tests an array with both negative and positive components
-    	double [] mixedArray = {3.2, -8.9, 1.0, -11.4, -5.5};
-    	double [] mixedArraySorted = SortComparison.selectionSort(mixedArray);
-    	assertArrayEquals(mixedArray, mixedArraySorted, DELTA);
+    	double [] aMixed = {3.2, -8.9, 1.0, -11.4, -5.5};
+    	double [] aMixedSorted = {-11.4, -8.9, -5.5, 1.0, 3.2};
+    	double [] bMixed = SortComparison.selectionSort(aMixed);
+    	assertArrayEquals(aMixedSorted, bMixed, DELTA);
 
+    }
+    @Test
+    public void testMergeSortRecursive()
+    {
+    	//test an array with one element
+    	double [] aSingle = {1.5};	
+    	double [] aSingleSorted = {1.5};
+    	double [] bSingle = SortComparison.mergeSortRecursive(aSingle);
+    	assertArrayEquals(aSingleSorted, bSingle, DELTA);
+
+    	//tests a positive array
+    	double [] aPositive = {3.2, 8.9, 1.0, 11.4, 5.5};
+    	double [] aPositiveSorted = {1.0, 3.2, 5.5, 8.9, 11.4};
+    	double [] bPositive =SortComparison.mergeSortRecursive(aPositive);
+    	assertArrayEquals(aPositiveSorted, bPositive, DELTA);
+
+    	//test a negative array
+    	double [] aNegative = {-3.2, -8.9, -1.0, -11.4, -5.5};
+    	double [] aNegativeSorted = {-11.4, -8.9, -5.5, -3.2, -1.0};
+    	double [] bNegative = SortComparison.mergeSortRecursive(aNegative);
+    	assertArrayEquals(aNegativeSorted, bNegative, DELTA);
+
+    	//tests an array with both negative and positive components
+    	double [] aMixed = {3.2, -8.9, 1.0, -11.4, -5.5};
+    	double [] aMixedSorted = {-11.4, -8.9, -5.5, 1.0, 3.2};
+    	double [] bMixed = SortComparison.mergeSortRecursive(aMixed);
+    	assertArrayEquals(aMixedSorted, bMixed, DELTA);
+
+    }
+    
+    @Test
+    public void testMergeSortIterative()
+    {
+    	//test an array with one element
+    	double [] aSingle = {1.5};	
+    	double [] aSingleSorted = {1.5};
+    	double [] bSingle = SortComparison.mergeSortIterative(aSingle);
+    	assertArrayEquals(aSingleSorted, bSingle, DELTA);
+
+    	//tests a positive array
+    	double [] aPositive = {3.2, 8.9, 1.0, 11.4, 5.5};
+    	double [] aPositiveSorted = {1.0, 3.2, 5.5, 8.9, 11.4};
+    	double [] bPositive =SortComparison.mergeSortIterative(aPositive);
+    	assertArrayEquals(aPositiveSorted, bPositive, DELTA);
+
+    	//test a negative array
+    	double [] aNegative = {-3.2, -8.9, -1.0, -11.4, -5.5};
+    	double [] aNegativeSorted = {-11.4, -8.9, -5.5, -3.2, -1.0};
+    	double [] bNegative = SortComparison.mergeSortIterative(aNegative);
+    	assertArrayEquals(aNegativeSorted, bNegative, DELTA);
+
+    	//tests an array with both negative and positive components
+    	double [] aMixed = {3.2, -8.9, 1.0, -11.4, -5.5};
+    	double [] aMixedSorted = {-11.4, -8.9, -5.5, 1.0, 3.2};
+    	double [] bMixed = SortComparison.mergeSortIterative(aMixed);
+    	assertArrayEquals(aMixedSorted, bMixed, DELTA);
+    }
+    @Test
+    public void testQuicksort()
+    {
+    	
     }
     /**
      *  Main Method.

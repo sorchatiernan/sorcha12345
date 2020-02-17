@@ -97,11 +97,34 @@ class SortComparison {
 	 */
 
 	static double[] mergeSortIterative (double a[]) {
-		return null;
-		//todo: implement the sort
+		if (a == null)
+		{
+			return null;
+		}
+		else
+		{
+			double [] aux = new double [a.length];
+			if (a.length ==1)
+			{
+				return a;
+			}
+
+			else
+			{
+				sortIterative(a);
+				return a;
+			}
+		}
 
 	}//end mergesortIterative
-
+	public static void sortIterative(double [] a)
+	{
+		int N = a.length;
+		double [] aux = new double[N];
+		for (int sz=1; sz < N; sz = sz+sz)
+			for(int lo = 0; lo < N - sz; lo += sz + sz)
+				merge (a, aux, lo, lo+sz-1, Math.min(lo+sz+sz-1, N-1));
+	}
 
 
 	/**
@@ -111,59 +134,57 @@ class SortComparison {
 	 * @param a: An unsorted array of doubles.
 	 * @return after the method returns, the array must be in ascending sorted order.
 	 */
-	static double[] mergeSortRecursive (double a[]) {
-		double [] aux = new double [a.length];
-		double [] aSorted = sort(a,aux 0, a.length - 1);
+	static double [] mergeSortRecursive (double a[]) {
+
+		if (a == null)
+		{
+			return null;
+		}
+		else
+		{
+			double [] aux = new double [a.length];
+			if (a.length ==1)
+			{
+				return a;
+			}
+
+			else
+			{
+				sortRecursive(a,aux, 0, a.length - 1);
+				return a;
+			}
+		}
+		
+		
 
 		//todo: implement the sort
 
 	}//end mergeSortRecursive
-	private static double [] sort(double [] a, double [] aux, int lo, int hi)
+	private static void sortRecursive(double [] a, double [] aux, int lo, int hi)
 	{
-		if (hi <= lo) 
+		if(hi<=lo) return;
+		int mid = lo + (hi - lo)/2;
+		sortRecursive(a, aux, lo, mid);
+		sortRecursive(a, aux, mid +1, hi);
+		merge(a, aux, lo, mid, hi);
+		
+	}
+	private static void merge(double [] a, double [] aux, int lo, int mid, int hi)
+	{
+		
+		for(int k = lo; k<= hi; k++)
+			aux[k] = a[k];
+		
+		int i = lo, j = mid+1;
+		for (int k = lo; k <= hi; k++)
 		{
-			return aux;
-		}
-		else
-		{
-			int mid = lo + (hi - lo)/2;
-			sort(a, aux, lo, mid);
-			sort(a, aux, mid+1, hi);
-			double [] aSorted = merge(a, aux, lo, mid, hi);
-			return aSorted;
+			if		(i > mid )			a[k] = aux[j++];
+			else if	(j > hi)			a[k] = aux[i++];
+			else if	(aux[j] < aux[i]) 	a[k] = aux[j++];
+			else						a[k] = aux[i++];
 		}
 		
 	}
-	private static double [] merge(double [] a, double [] aux, int lo, int mid, int hi)
-	{
-		for (int k = lo; k <= hi; k++)
-		{
-			aux[k] = a [k];
-		}
-		int i = lo;
-		int j = mid+1;
-		for(int k = lo; k<= hi; k++)
-		{
-			if (i > mid)
-			{
-				a[k] = aux[j++];
-			}
-			else if (j > hi)
-			{
-				a[k] = aux[i++];
-			}
-			else if ((aux[j] < aux[i]))
-			{
-				a[k] = aux[i++];
-			}
-		}
-		return a;
-	}
-
-
-
-
-
 
 
 	public static void main(String[] args) {
