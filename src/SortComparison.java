@@ -76,10 +76,56 @@ class SortComparison {
 	 *
 	 */
 	static double [] quickSort (double a[]){
-		return null;
+		if (a==null)
+		{
+			return null;
+		}
+		else
+		{
+			recursiveQuickSort(a, 0, a.length-1);
+			return a;
+		}
 		//todo: implement the sort
 
 	}//end quicksort
+	public static void recursiveQuickSort(double [] a, int lo, int hi)
+	{
+		int pivotPos = partition(a, lo, hi);
+		if(lo <(pivotPos-1))
+		{
+			recursiveQuickSort(a, lo, (pivotPos-1));
+		}
+		if (hi >pivotPos)
+		{
+			recursiveQuickSort(a, pivotPos, hi);
+		}
+	}
+	private static int partition(double [] a, int lo, int hi)
+	{
+		double pivotEle = a[lo];
+		
+		while(lo <= hi)
+		{
+			while(a[lo] < pivotEle)
+			{
+				lo++;
+			}
+			while(a[hi] > pivotEle)
+			{
+				hi--;
+			}
+			if(lo<= hi)
+			{
+				double aTemp = a[lo];
+				a[lo] = a[hi];
+				a[hi] = aTemp;
+				
+				lo++;
+				hi--;
+			}
+		}
+		return lo;
+	}
 
 	/**
 	 * Sorts an array of doubles using Merge Sort.

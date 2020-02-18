@@ -162,7 +162,29 @@ public class SortComparisonTest
     @Test
     public void testQuicksort()
     {
-    	
+    	//test an array with one element
+    	double [] aSingle = {1.5};	
+    	double [] aSingleSorted = {1.5};
+    	double [] bSingle = SortComparison.quickSort(aSingle);
+    	assertArrayEquals(aSingleSorted, bSingle, DELTA);
+
+    	//tests a positive array
+    	double [] aPositive = {3.2, 8.9, 1.0, 11.4, 5.5};
+    	double [] aPositiveSorted = {1.0, 3.2, 5.5, 8.9, 11.4};
+    	double [] bPositive =SortComparison.quickSort(aPositive);
+    	assertArrayEquals(aPositiveSorted, bPositive, DELTA);
+
+    	//test a negative array
+    	double [] aNegative = {-3.2, -8.9, -1.0, -11.4, -5.5};
+    	double [] aNegativeSorted = {-11.4, -8.9, -5.5, -3.2, -1.0};
+    	double [] bNegative = SortComparison.quickSort(aNegative);
+    	assertArrayEquals(aNegativeSorted, bNegative, DELTA);
+
+    	//tests an array with both negative and positive components
+    	double [] aMixed = {3.2, -8.9, 1.0, -11.4, -5.5};
+    	double [] aMixedSorted = {-11.4, -8.9, -5.5, 1.0, 3.2};
+    	double [] bMixed = SortComparison.quickSort(aMixed);
+    	assertArrayEquals(aMixedSorted, bMixed, DELTA);
     }
     /**
      *  Main Method.
