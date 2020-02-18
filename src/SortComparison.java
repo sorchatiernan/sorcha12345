@@ -1,3 +1,7 @@
+import java.util.Scanner;
+import java.util.*;
+import java.io.*;
+
 // -------------------------------------------------------------------------
 
 /**
@@ -234,8 +238,38 @@ class SortComparison {
 
 
 	public static void main(String[] args) {
-
-		//todo: do experiments as per assignment instructions
+		double [] numbers10 = new double[10];
+		double [] numbers100 = new double [100];
+		double [] numbers1000 = new double [1000];
+		double [] numbers1000Duplicates = new double [1000];
+		double [] numbersNearlyOrdered1000 = new double [1000];
+		double [] numbersReverse1000 = new double [1000];
+		double [] numbersSorted1000 = new double [1000];
+		
+		int i =0;
+		try
+		{
+			File file1 = new File("numbers10.txt");
+		BufferedReader br1 = new BufferedReader(new FileReader(file1));
+		String strCurrentLine;
+		double douCurrentLine;
+		while((strCurrentLine = br1.readLine()) != null)
+		{
+	
+			douCurrentLine = Double.parseDouble(strCurrentLine);
+			numbers10[i] = douCurrentLine;
+			i++;
+		}
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		String array = "";
+		for(int j =0; j <numbers10.length;j++)
+		{
+			array += " " + numbers10[j] + " ";
+		}
+		System.out.println(array);
 	}
 
 }//end class
