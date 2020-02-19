@@ -10,8 +10,17 @@ import org.junit.runners.JUnit4;
 /**
  *  Test class for SortComparison.java
  *
- *  @author
+ *  @author Sorcha Tiernan
  *  @version HT 2020
+ *  
+ *  						Insertion	Selection	Quick	MergeRecursive	MergeIterative
+ *  10 random				
+ *  100 random
+ *  1000 random
+ *  1000 duplicates
+ *  1000 nearly ordered		
+ *  1000 reverse order
+ *  1000 sorted
  */
 @RunWith(JUnit4.class)
 public class SortComparisonTest
